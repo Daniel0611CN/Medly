@@ -41,7 +41,7 @@ Las personas que solo quieran instalar la aplicación **no necesitan Android Stu
 
 La aplicación se descarga desde GitHub como un archivo APK independiente; no es necesario clonar el repositorio ni instalar Gradle. Si Android muestra un aviso de seguridad, comprueba que el APK procede de la sección oficial de [Releases](https://github.com/Daniel0611CN/Medly/releases).
 
-Actualmente el repositorio contiene el código fuente y la rama de desarrollo. Hasta que se publique una Release con un APK adjunto, no habrá un archivo instalable para descargar directamente. El APK `debug` generado localmente sirve para pruebas; para distribuir la aplicación se recomienda subir un APK `release` firmado a una GitHub Release.
+El repositorio incluye un workflow que compila y publica automáticamente el APK cuando se crea una etiqueta `v*` (por ejemplo, `v1.0.0`). Si no aparece todavía una versión en [Releases](https://github.com/Daniel0611CN/Medly/releases), revisa la ejecución de **Actions > Build and publish APK**: la Release se crea cuando termina correctamente la compilación. El APK `debug` generado por este primer workflow sirve para pruebas; para una distribución pública posterior se recomienda sustituirlo por un APK `release` firmado.
 
 ## Generar el APK desde Android Studio
 
