@@ -33,7 +33,7 @@ El APK generado queda en `app/build/outputs/apk/debug/app-debug.apk`. Para insta
 
 Las personas que solo quieran instalar la aplicación **no necesitan Android Studio ni conocimientos de programación**. Cuando haya una versión publicada, deben seguir estos pasos:
 
-**[Descargar Medly v1.0.0 (APK)](https://github.com/Daniel0611CN/Medly/releases/download/v1.0.0/Medly-v1.0.0.apk)**
+**[Descargar Medly v1.1.0 (APK)](https://github.com/Daniel0611CN/Medly/releases/download/v1.1.0/Medly-v1.1.0.apk)**
 
 1. Abrir la sección [Releases de Medly](https://github.com/Daniel0611CN/Medly/releases).
 2. Entrar en la versión más reciente.
