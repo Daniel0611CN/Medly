@@ -38,6 +38,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
 private fun MedlyApp(viewModel: MedicationViewModel) {
     val navController = rememberNavController()
     val medications by viewModel.medications.collectAsState()
