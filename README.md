@@ -28,6 +28,41 @@ En Windows:
 
 El APK generado queda en `app/build/outputs/apk/debug/app-debug.apk`. Para instalarlo, copia ese archivo al teléfono, habilita temporalmente **Instalar aplicaciones desconocidas** para el gestor de archivos y ábrelo. También puedes arrastrarlo a un emulador desde Android Studio.
 
+## Descargar únicamente el APK
+
+Las personas que solo quieran instalar la aplicación **no necesitan Android Studio ni conocimientos de programación**. Cuando haya una versión publicada, deben seguir estos pasos:
+
+1. Abrir la sección [Releases de Medly](https://github.com/Daniel0611CN/Medly/releases).
+2. Entrar en la versión más reciente.
+3. Descargar el archivo `.apk` adjunto, por ejemplo `Medly-release.apk`.
+4. Abrir el archivo desde la barra de descargas o desde la carpeta `Descargas` del móvil.
+5. Si Android lo solicita, activar temporalmente **Permitir instalar aplicaciones desconocidas** para el navegador o gestor de archivos que se esté usando.
+6. Volver al instalador, pulsar **Instalar** y abrir Medly.
+
+La aplicación se descarga desde GitHub como un archivo APK independiente; no es necesario clonar el repositorio ni instalar Gradle. Si Android muestra un aviso de seguridad, comprueba que el APK procede de la sección oficial de [Releases](https://github.com/Daniel0611CN/Medly/releases).
+
+Actualmente el repositorio contiene el código fuente y la rama de desarrollo. Hasta que se publique una Release con un APK adjunto, no habrá un archivo instalable para descargar directamente. El APK `debug` generado localmente sirve para pruebas; para distribuir la aplicación se recomienda subir un APK `release` firmado a una GitHub Release.
+
+## Generar el APK desde Android Studio
+
+Esta opción es para quien quiera compilar la aplicación manualmente:
+
+1. Descargar el proyecto desde GitHub con **Code > Download ZIP**, o clonarlo.
+2. Abrir la carpeta en Android Studio.
+3. Instalar, si Android Studio lo solicita, Android SDK 35 y aceptar la sincronización de Gradle.
+4. Esperar a que termine **Gradle Sync**.
+5. Seleccionar **Build > Build App Bundle(s) / APK(s) > Build APK(s)**.
+6. Pulsar la notificación **Locate** o abrir `app/build/outputs/apk/debug/app-debug.apk`.
+7. Copiar ese APK al teléfono e instalarlo siguiendo los pasos anteriores.
+
+También puede generarse desde una terminal:
+
+```powershell
+.\gradlew.bat assembleDebug
+```
+
+El APK estará en `app/build/outputs/apk/debug/app-debug.apk`.
+
 ## Arquitectura
 
 `data/` contiene la entidad Room, DAO, base de datos, repositorio y la lógica de consumo. `ui/` contiene el `ViewModel` y el tema Material 3. `MainActivity` expone las pantallas `Hoy` e `Inventario` mediante `NavigationBar`.
