@@ -10,6 +10,7 @@ Medly es una aplicación Android nativa para controlar tratamientos, existencias
 - Persistencia local con Room, arquitectura MVVM, `Flow`/`StateFlow` y navegación Compose Material 3.
 - Logo vectorial minimalista incluido en `app/src/main/res/drawable/ic_medly_logo.xml`.
 - Widget de pantalla de inicio para teléfonos y tablets, adaptable horizontal y verticalmente, con las tomas y el stock más urgente.
+- Modo claro y modo oscuro, con detección inicial del tema del sistema y selector persistente desde la barra superior.
 
 ## Ejecutar
 

@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,6 @@ import androidx.room.Room
 import com.medly.app.data.*
 import com.medly.app.ui.*
 import com.medly.app.ui.theme.MedlyTheme
-import com.medly.app.widget.MedlyWidget
 
 class MainActivity : ComponentActivity() {
     private val viewModel: MedicationViewModel by viewModels {
@@ -38,17 +38,49 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { MedlyTheme { MedlyApp(viewModel) } }
+        val preferences = getSharedPreferences("medly_preferences", MODE_PRIVATE)
+        setContent {
+            val systemDark = isSystemInDarkTheme()
+            var darkTheme by remember {
+                mutableStateOf(preferences.getBoolean("dark_theme", systemDark))
+            }
+            MedlyTheme(darkTheme = darkTheme) {
+                MedlyApp(
+                    viewModel = viewModel,
+                    darkTheme = darkTheme,
+                    onToggleTheme = {
+                        darkTheme = !darkTheme
+                        preferences.edit().putBoolean("dark_theme", darkTheme).apply()
+                    }
+                )
+            }
+        }
     }
 }
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-private fun MedlyApp(viewModel: MedicationViewModel) {
+private fun MedlyApp(
+    viewModel: MedicationViewModel,
+    darkTheme: Boolean,
+    onToggleTheme: () -> Unit
+) {
     val navController = rememberNavController()
     val medications by viewModel.medications.collectAsState()
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Medly") }) },
+        topBar = {
+            TopAppBar(
+                title = { Text("Medly") },
+                actions = {
+                    IconButton(onClick = onToggleTheme) {
+                        Icon(
+                            imageVector = if (darkTheme) Icons.Default.LightMode else Icons.Default.DarkMode,
+                            contentDescription = if (darkTheme) "Activar modo claro" else "Activar modo oscuro"
+                        )
+                    }
+                }
+            )
+        },
         bottomBar = {
             NavigationBar {
                 NavigationBarItem(

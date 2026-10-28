@@ -1,9 +1,8 @@
 <resources>
-    <style name="Theme.Medly" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Theme.Medly" parent="android:style/Theme.Material.NoActionBar">
         <item name="android:fontFamily">sans</item>
-        <item name="android:colorAccent">#4D6B5A</item>
-        <item name="android:navigationBarColor">#F7F9F5</item>
-        <item name="android:statusBarColor">#F7F9F5</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorAccent">#0F766E</item>
+        <item name="android:navigationBarColor">#0F2E2A</item>
+        <item name="android:statusBarColor">#0F2E2A</item>
     </style>
 </resources>

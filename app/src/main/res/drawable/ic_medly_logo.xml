@@ -8,15 +8,15 @@
         android:pathData="M0,0h200v200h-200z" />
     <group android:rotation="-45" android:pivotX="100" android:pivotY="100">
         <path
-            android:fillColor="#A8D8CF"
+            android:fillColor="#BFE9E1"
             android:pathData="M40,72h92a28,28 0,0 1,0 56h-92a28,28 0,0 1,0 -56z" />
         <path
-            android:fillColor="#0F766E"
+            android:fillColor="#2DD4BF"
             android:pathData="M100,72H68a28,28 0,0 0,0 56h32z" />
     </group>
     <path
         android:fillColor="@android:color/transparent"
-        android:strokeColor="#F3F7F5"
+        android:strokeColor="#0F2E2A"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
         android:strokeWidth="6"
