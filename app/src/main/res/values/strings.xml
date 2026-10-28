@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Medly</string>
+    <string name="widget_description">Tomas y stock de Medly</string>
+    <string name="widget_loading">Cargando Medly…</string>
 </resources>

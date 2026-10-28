@@ -9,6 +9,7 @@ Medly es una aplicación Android nativa para controlar tratamientos, existencias
 - Cálculo de días restantes y estado (`Bien`, `Bajo`, `Crítico`, `Agotado`), con advertencia visual al quedar siete días o menos.
 - Persistencia local con Room, arquitectura MVVM, `Flow`/`StateFlow` y navegación Compose Material 3.
 - Logo vectorial minimalista incluido en `app/src/main/res/drawable/ic_medly_logo.xml`.
+- Widget de pantalla de inicio para teléfonos y tablets, adaptable horizontal y verticalmente, con las tomas y el stock más urgente.
 
 ## Ejecutar
 
@@ -68,6 +69,12 @@ El APK estará en `app/build/outputs/apk/debug/app-debug.apk`.
 ## Arquitectura
 
 `data/` contiene la entidad Room, DAO, base de datos, repositorio y la lógica de consumo. `ui/` contiene el `ViewModel` y el tema Material 3. `MainActivity` expone las pantallas `Hoy` e `Inventario` mediante `NavigationBar`.
+
+## Widget de medicamentos
+
+Después de instalar Medly, mantén pulsado un espacio vacío de la pantalla de inicio y elige **Widgets > Medly**. Puedes cambiar su tamaño para usarlo en un teléfono o tablet. El widget muestra hasta tres tratamientos ordenados por días restantes, el estado del stock y un acceso directo a la aplicación. Se actualiza tras añadir, editar, eliminar o registrar una toma, y Android también puede refrescarlo periódicamente.
+
+El widget requiere Android 8.0 (API 26) o posterior, igual que la aplicación.
 
 ## Modelo de datos
 

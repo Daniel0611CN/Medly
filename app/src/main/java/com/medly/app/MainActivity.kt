@@ -21,12 +21,17 @@ import androidx.room.Room
 import com.medly.app.data.*
 import com.medly.app.ui.*
 import com.medly.app.ui.theme.MedlyTheme
+import com.medly.app.widget.MedlyWidget
 
 class MainActivity : ComponentActivity() {
     private val viewModel: MedicationViewModel by viewModels {
         MedicationViewModelFactory(
             MedicationRepository(
-                Room.databaseBuilder(this, MedicationDatabase::class.java, "medly.db").build().medicationDao()
+                Room.databaseBuilder(this, MedicationDatabase::class.java, "medly.db")
+                    .fallbackToDestructiveMigration()
+                    .build()
+                    .medicationDao(),
+                applicationContext
             )
         )
     }
