@@ -21,7 +21,7 @@ class MedicationTest {
         val consumed = StockLogic.consume(medication.copy(looseUnits = 1, packs = 1))
         assertEquals(29, consumed.looseUnits)
         assertEquals(0, consumed.packs)
-        assertEquals(12, consumed.stock)
+        assertEquals(29, consumed.stock)
     }
 
     @Test fun checkInIsBlockedAtMonthlyLimit() {
